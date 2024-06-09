@@ -1,0 +1,42 @@
+<h1 class="mt-5">Selectores</h1>
+<hr>
+<form [formGroup]="myForm">
+  <div class="row mb-2">
+    <div class="col">
+      <label for="" class="form-label"></label>
+      <select class="form-control" formControlName="generos">
+        <option value="0">-- Seleccione generos--</option>
+        <option *ngFor="let genero of generos" [value]="genero.mal_id">{{genero.name}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row mb-2" *ngIf="animes.length>0 ">
+    <div class="col">
+      <label for="" class="form-label"></label>
+      <select class="form-control" formControlName="animes">
+        <option value="0">-- Seleccione anime--</option>
+        <option *ngFor="let anime of animes" [value]="anime.mal_id">{{anime.title}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row mb-2" *ngIf="episodiosAnime.length>0 ">
+    <div class="col">
+      <label for="" class="form-label"></label>
+      <select class="form-control" formControlName="episodios">
+        <option value="0">-- Seleccione episodio--</option>
+        <option *ngFor="let episodioAnime of episodiosAnime" [value]="episodioAnime.mal_id">{{episodioAnime.title}}
+        </option>
+      </select>
+    </div>
+  </div>
+
+</form>
+
+<h3>Formulario</h3>
+
+<code>
+  {{myForm.value | json}}
+</code>
+<p>{{myForm.valid}}</p>

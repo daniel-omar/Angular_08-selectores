@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CountriesService } from '../../services/countries.service';
+import { CountriesService } from '../../services/animes.service';
 import { Genero } from '../../interfaces/genero.interface';
 import { Anime } from '../../interfaces/anime.interface';
 import { filter, tap } from 'rxjs';
@@ -11,12 +11,14 @@ import { EpisodioAnime } from '../../interfaces/episodio-anime.interface';
   templateUrl: './selector-page.component.html',
   styleUrls: ['./selector-page.component.scss']
 })
-export class SelectorPageComponent implements OnInit {
+export class SelectorPageComponent implements OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
 
   public myForm: FormGroup = this._formBuilder.group({});
   public generos: Genero[] = [];
   public animes: Anime[] = [];
   public episodiosAnime: EpisodioAnime[] = [];
+  public datos: string[] = []
+  public isSelectVisible: boolean = false;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -98,5 +100,27 @@ export class SelectorPageComponent implements OnInit {
         this.episodiosAnime = episodios
       }
     )
+  }
+
+  ngDoCheck(): void {
+    console.log("Select page: ngDoCheck")
+  }
+  ngAfterContentInit(): void {
+    console.log("Select page: ngAfterContentInit")
+  }
+  ngAfterContentChecked(): void {
+    console.log("Select page: ngAfterContentChecked")
+  }
+  ngAfterViewInit(): void {
+    console.log("Select page: ngAfterViewInit")
+  }
+  ngAfterViewChecked(): void {
+    console.log("Select page: ngAfterViewChecked")
+  }
+
+  addDato() {
+    const value = this.myForm.get("animes")?.value
+    this.datos = this.animes.filter((item, index) => index <= 5).map(x => x.title)
+    console.log(this.datos)
   }
 }

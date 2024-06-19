@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CountriesModule } from './countries/countries.module';
+import { AnimesModule } from './animes/animes.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { CountriesModule } from './countries/countries.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CountriesModule
+    AnimesModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

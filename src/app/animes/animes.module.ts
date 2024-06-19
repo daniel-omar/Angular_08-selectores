@@ -2,19 +2,26 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SelectorPageComponent } from './pages/selector-page/selector-page.component';
 
-import { CountriesRoutingModule } from './countries-routing.module';
+import { AnimesRoutingModule } from './animes-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SelectComponent } from './components/select/select.component';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
-    SelectorPageComponent
+    SelectorPageComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,
-    CountriesRoutingModule,
+    AnimesRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+    MatButtonModule
   ]
 })
-export class CountriesModule { }
+export class AnimesModule { }

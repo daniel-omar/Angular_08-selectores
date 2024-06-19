@@ -40,3 +40,7 @@
   {{myForm.value | json}}
 </code>
 <p>{{myForm.valid}}</p>
+
+<button (click)="isSelectVisible=!isSelectVisible">Toggle</button>
+<button (click)="addDato()" mat-button color="accent">Agregar</button>
+<animes-select [datos]="datos" *ngIf="isSelectVisible"></animes-select>
